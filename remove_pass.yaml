@@ -1,0 +1,19 @@
+---
+
+
+- hosts: all
+# ansible all veya ansible-playbook all
+  become: true
+# ansible --become    sudo ile aynı
+  tasks:
+
+
+  - name: uninstall pass package
+    apt:
+      name: pass
+      state: absent
+
+  - name: remove w3m support for pass
+    apt:
+      name: w3m
+      state: absent

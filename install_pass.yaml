@@ -1,0 +1,22 @@
+---
+
+
+- hosts: all
+# ansible all veya ansible-playbook all
+  become: true
+# ansible --become    sudo ile aynı
+  tasks:
+
+  - name: update repository
+    apt:
+      update_cache: yes
+
+  - name: install pass package
+    apt:
+      name: pass
+      state: present
+
+  - name: add w3m support for pass
+    apt:
+      name: w3m
+      state: present
