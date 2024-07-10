@@ -1,6 +1,5 @@
 ---
 
-
 - hosts: all
 # ansible all veya ansible-playbook all
   become: true
@@ -10,13 +9,36 @@
   - name: update repository
     apt:
       update_cache: yes
+    when: ansible_distribution in ["Debian", "Ubuntu"]
+    # when: ansible_distribution == "Ubuntu"
 
   - name: install pass package
     apt:
       name: pass
       state: present
+    when: ansible_distribution == "Ubuntu"
 
   - name: add w3m support for pass
     apt:
       name: w3m
       state: present
+    when: ansible_distribution == "Ubuntu"
+
+
+  - name: update repository on AlmaLinux
+    dnf:
+      update_cache: yes
+    when: ansible_distribution == "AlmaLinux"
+
+  - name: install httpd package on AlmaLinux
+    dnf:
+      name: httpd
+      state: present
+    when: ansible_distribution == "AlmaLinux"
+
+  - name: add php support for pass on AlmaLinux
+    dnf:
+      name: php
+      state: present
+    when: ansible_distribution == "AlmaLinux"
+ 
