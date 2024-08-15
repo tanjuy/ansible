@@ -1,0 +1,10 @@
+---
+
+- hosts: 192.168.1.133
+  become: true
+
+  tasks:
+    - name: Almalinux update test
+      dnf:
+        update_cache: yes
+      when: ansible_distribution == "AlmaLinux"

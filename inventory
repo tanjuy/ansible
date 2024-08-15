@@ -1,4 +1,10 @@
-192.168.1.136 pass_package=pass w3m_package=w3m
-192.168.1.132 pass_package=pass w3m_package=w3m
-192.168.1.128 pass_package=pass w3m_package=w3m
-192.168.1.133 pass_package=httpd w3m_package=php
+[web_servers]
+192.168.1.128
+192.168.1.133
+
+[db_servers]
+192.168.1.132
+
+[file_servers]
+192.168.1.136
+
