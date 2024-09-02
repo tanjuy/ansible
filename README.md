@@ -11,3 +11,7 @@ This is my awesome Ansible repository!
 `ansible -m gather_facts all`
 
 `ansible -m apt -a "name=pass state=present update_cache=yes" --become --ask-become-pass`
+
+```shell
+$ ansible all -a "shutdown" --become
+```
